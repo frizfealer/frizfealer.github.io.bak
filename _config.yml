@@ -59,7 +59,7 @@ plugins:
 
 author:
   name   : "Yeu-Chern (Joseph) Harn"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/profile_pic.jpg"
   bio    : "My awesome biography"
   links:
     - label: "Website"
@@ -106,7 +106,7 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false
 
 category_archive:
   type: liquid
