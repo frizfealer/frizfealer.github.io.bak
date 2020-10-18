@@ -109,7 +109,7 @@ defaults:
       author_profile: false
   - scope:
       path: ""
-      type: tag
+      type: tags
     values:
       author_profile: false
 
