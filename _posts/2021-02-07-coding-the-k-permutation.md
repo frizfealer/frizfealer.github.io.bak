@@ -26,14 +26,14 @@ The fourth ranking permutation is 231, so the answer is 231.
 
 **Example 1:**
 
-```Python
+```python
 Input: n = 3, k = 2
 Output: 132
 ```
 
 **Example 2:**
 
-```Python
+```python
 Input: n = 4, k = 4
 Output: 1342
 ```
@@ -51,7 +51,7 @@ Time complexity: ![equation](http://www.sciweavers.org/tex2img.php?eq=O%28n%21%2
 
 A better solution is maintaining the correct order when generating permutations, such that when generating the k-th permutation, it can directly return the results. The below codes uses a heap to maintain the the orders of viable numbers in the current dfs call, and return whenever we have k permutations in a global results list.
 
-```Python
+```python
 def get_k_perm(n, k):
     comb = 1
     valid_k = False
