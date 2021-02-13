@@ -8,7 +8,21 @@ tags:
   - Google
 ---
 
+<script src="//yihui.org/js/math-code.js"></script>
+<!-- Just one possible MathJax CDN below. You may use others. -->
+<script async
+  src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 ## Problem Introduction
+
+Hi `$z = x + y$`.
+
+`$$a^2 + b^2 = c^2$$`
+
+`$$\begin{vmatrix}a & b\\
+c & d
+\end{vmatrix}=ad-bc$$`
 
 Recently I heard a Google coding interview problem from a friend, the problem goes like:
 Consider n possible digits for permutations, find out the k-smallest (or largest) permutation.
@@ -44,7 +58,7 @@ Output: 1342
 
 it first using DFS to generate all permutations and then using heap to get top-k permutation
 
-Time complexity: ![equation](http://www.sciweavers.org/tex2img.php?eq=O%28n%21%29%20%2B%20O%28%5Clog%28n%21%29%29%20%2B%20O%28k%5Clog%28n%21%29%29&bc=White&fc=Black&im=jpg&fs=12&ff)
+Time complexity: ![equation](http://www.sciweavers.org/tex2img.php?eq=O%28n%21%29%20%2B%20O%28%5Clog%28n%21%29%29%20%2B%20O%28k%5Clog%28n%21%29%29&bc=White&fc=Black&im=jps&fs=12&ff=arev&edit)
 <!-- # https://stackoverflow.com/questions/11256433/how-to-show-math-equations-in-general-githubs-markdownnot-githubs-blog -->
 
 ### Order-maintained Solution
