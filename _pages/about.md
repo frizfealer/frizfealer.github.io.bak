@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: "About me"
-author_profile: false
+author_profile: True
 ---
 
 Hello, I am 韓羽晨, Yeu-Chern (Joseph) Harn. I am made from Taiwan and work in the US.
