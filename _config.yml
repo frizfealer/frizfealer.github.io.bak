@@ -60,20 +60,23 @@ plugins:
 author:
   name   : "Yeu-Chern (Joseph) Harn"
   avatar : "/assets/images/profile_pic.png"
-  bio    : "My awesome biography"
+  bio    : "Data Scientist at Lowe's. A technology and internet meme lover. Also love ☕️, 📖, 🍳, 🎶 "
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://frizfealer.github.io/homepage/"
+    # - label: "Website"
+    #   icon: "fas fa-fw fa-link"
+    #   url: "https://frizfealer.github.io/homepage/"
 #    - label: "Twitter"
 #      icon: "fab fa-fw fa-twitter-square"
 #      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/frizfealer"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin""
+      url: "https://www.linkedin.com/in/yeu-chern-harn/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://instagram.com/frizfealer"
 
 footer:
   links:
