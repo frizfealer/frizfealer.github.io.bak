@@ -86,7 +86,7 @@ Time complexity: O(nlogk). Each heap operation causes O(logk)
 
 The algorithm using the idea of divide-and-conquer. In each run, we choose a pivot element. In this case, we randomly choose a element. A **partition** function put the elements smaller than the pivot to its left and the elements larger than the pivot to its right, and returns the location of pivot. In other words, a partition function puts the pivot in its right location.
 
-![partition function illustration](assets/images/ppartition_function_illustrations.jpg)
+![partition function illustration](../assets/images/ppartition_function_illustrations.jpg)
 
 After the parition, if we find out the location of pivot is equals to the input k, than it is the element we want. Otherwise; there are two possibilities. In one case, the pivot is on the right of the k location, and we search the left of the pivot. In another case, the pivot is on the left of the k location, and we search the right of the pivot. In each iteration, we reduce the search space and if there is just one element or we find the exact k location, we can return directly.
 
