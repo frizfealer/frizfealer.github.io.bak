@@ -1,33 +1,21 @@
 ---
-title: "The k permutation (Google coding interview)"
+title: "The k permutation"
+last_modified_at: 2021-02-27
 categories:
   - Blog
 tags:
   - coding interview
   - Python
-  - Google
+  - backtracking
+  - permutation
 ---
-
-<script src="//yihui.org/js/math-code.js"></script>
-<!-- Just one possible MathJax CDN below. You may use others. -->
-<script async
-  src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 ## Problem Introduction
 
-Hi `$z = x + y$`.
+Recently I heard a coding interview problem from a friend. The problem goes like:
+given n possible digits for permutations, return the k-smallest (or largest) permutation.
 
-`$$a^2 + b^2 = c^2$$`
-
-`$$\begin{vmatrix}a & b\\
-c & d
-\end{vmatrix}=ad-bc$$`
-
-Recently I heard a Google coding interview problem from a friend, the problem goes like:
-Consider n possible digits for permutations, find out the k-smallest (or largest) permutation.
-
-if n = 3 and k = 4. For n possible digits permutations, we have
+if n = 3 and k = 4, for n possible digits permutations, we have
 
 1. 123
 2. 132
@@ -36,7 +24,7 @@ if n = 3 and k = 4. For n possible digits permutations, we have
 5. 312
 6. 321
 
-The fourth ranking permutation is 231, so the answer is 231.
+The 1-smallest permutation is 123; whereas the 3-smallest permutation is 213.
 
 **Example 1:**
 
@@ -56,52 +44,48 @@ Output: 1342
 
 ### Brute-force Solution
 
-it first using DFS to generate all permutations and then using heap to get top-k permutation
+First using DFS to generate all permutations. Second, using min-heap to get k-smallest permutation.
 
-Time complexity: ![equation](http://www.sciweavers.org/tex2img.php?eq=O%28n%21%29%20%2B%20O%28%5Clog%28n%21%29%29%20%2B%20O%28k%5Clog%28n%21%29%29&bc=White&fc=Black&im=jps&fs=12&ff=arev&edit)
+Time complexity: O(n!)+O(log(n!))+O(klog(n!))
+
 <!-- # https://stackoverflow.com/questions/11256433/how-to-show-math-equations-in-general-githubs-markdownnot-githubs-blog -->
 
-### Order-maintained Solution
+### Generting Permutations On-the-fly Solution
 
-A better solution is maintaining the correct order when generating permutations, such that when generating the k-th permutation, it can directly return the results. The below codes uses a heap to maintain the the orders of viable numbers in the current dfs call, and return whenever we have k permutations in a global results list.
+A better solution is generating permutations on-the-fly instead of generating all of them. In this process, we want to make sure the generating order is what we want, such that when generating the k-th permutation, it can directly return the results.
 
 ```python
 def get_k_perm(n, k):
-    comb = 1
+    # checking k is a valid number for n
+    perms = 1
     valid_k = False
     for i in range(n, 0, -1):
-        comb *= i
-        if comb >= k:
+        perms *= i
+        if perms >= k:
             valid_k = True
             break
     if not valid_k:
         print(f"{k} is not valid for this {n}")
         return None
-    
-    nums = [i for i in range(1, n+1)]
+    #define dfs routine
+    remain_nums = [i for i in range(1, n+1)]
     results = []
-
-    def dfs(nums, c_perm):
-        if not nums:
+    def dfs(remain_nums, c_perm):
+        if not remain_nums:
             results.append(c_perm.copy())
             return
-        heap = nums.copy()
-        heapify(heap)
-        while heap:
-            min_digit = heappop(heap)
-            nums.remove(min_digit)
-            c_perm.append(min_digit)
-            dfs(nums, c_perm)
-            nums.append(min_digit)
+        for i in range(len(remain_nums)):
+            c_perm.append(remain_nums[i])
+            dfs(remain_nums[:i] + remain_nums[i+1:],
+                c_perm)
             c_perm.pop()
-            if len(results) >= k:
+            if len(results) == k:
                 break
-
-    dfs(nums, [])
+    dfs(remain_nums, [])
     return results[-1]
 ```
 
-Time complexity: for each heappop, it costs O(logN). and for list remove and list copy, it costs O(N). In each call of dfs, it has one list-copy, one heapify, one heappop, and one list-remove, it costs O(2logN + 2N). Along the path to the end, it costs O(2logN + 2N + log(N-1) + 2(N-1) + ... + log(1) + 2) = O(N^2), and it searches over k such paths, so overall time complexity is O(kN^2)
+Time complexity: In each call of dfs, it has one list-copy. It costs O(N). There are N such calls for each path to the end; therefore O(N^2). We only search over k such paths; so overall time complexity is O(kN^2).
 
 ## Pattern Solution
 
@@ -118,6 +102,17 @@ The first digit from the left, repeats 2! times, the second digit from the left 
 
 ```python
 def get_k_perm(n, k):
+    # checking k is a valid number for n
+    perms = 1
+    valid_k = False
+    for i in range(n, 0, -1):
+        perms *= i
+        if perms >= k:
+            valid_k = True
+            break
+    if not valid_k:
+        print(f"{k} is not valid for this {n}")
+        return None
     nums = [i for i in range(1, n+1)]
     result = []
     divider = 1
