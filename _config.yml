@@ -16,9 +16,8 @@
 title: Yeu-Chern Harn's Site
 email: duke3d.harn@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This is Yeu-Chern Harn's site. It includes his biref introduction, as well as his blogs. 
+  His blogs include articles related to computer science, machine learning, and artificial intelligence.
 twitter_username: username
 github_username: username
 minimal_mistakes_skin: dirt
@@ -60,7 +59,7 @@ plugins:
 author:
   name   : "Yeu-Chern (Joseph) Harn"
   avatar : "/assets/images/profile_pic.png"
-  bio    : "Data Scientist at Lowe's. A technology and internet meme lover. Also love ☕️, 📖, 🍳, 🎶 "
+  bio    : "Data Scientist at Lowe's. A wisdom seeker, technology and internet meme lover. Also love ☕️, 📖, 🍳, 🎶 "
   links:
     # - label: "Website"
     #   icon: "fas fa-fw fa-link"
@@ -72,7 +71,7 @@ author:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/frizfealer"
     - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin""
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/yeu-chern-harn/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
