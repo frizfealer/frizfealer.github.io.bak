@@ -3,7 +3,6 @@ title: "Kth Largest Element in an Array"
 categories:
   - Blog
 tags:
-  - coding interview
   - Python
   - algorithm
   - divide and conquer

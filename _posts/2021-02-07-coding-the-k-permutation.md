@@ -4,7 +4,6 @@ last_modified_at: 2021-02-27
 categories:
   - Blog
 tags:
-  - coding interview
   - Python
   - backtracking
   - permutation
